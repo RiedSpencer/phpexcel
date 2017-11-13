@@ -1,0 +1,141 @@
+<html>
+	<head>
+		<title>表格处理（phpexcel）</title>
+		<meta charset='utf-8'></meta>
+		<link rel="stylesheet" href="dist/spectre.css">
+		<link rel="stylesheet" href="dist/spectre-icons.css">
+		<link rel="stylesheet" href="dist/spectre-exp.css">
+		<link rel="stylesheet" href="css/spec.css">
+		<link rel="stylesheet" href="css/main.css">
+		<script src="js/jquery.min.js"></script>
+	</head>
+	<body>
+		<h2 class="title">表格处理</h2>
+		<div class="nav-container">
+			<ul class="tab tab-block">
+				<li class="tab-item active" data-url="docs">
+					<a href="javascript:;" >docs</a>
+				</li>
+				<li class="tab-item" data-url="upload">
+					<a href="javascript:;">upload</a>
+				<li>
+				<li class="tab-item" data-url="download">
+					<a href="javascript:;">download</a>
+				</li>
+			</ul>
+		</div>
+		<div class="data-container">
+
+			<!-- 插件说明 -->
+			<div class="cont-container docs-container ">
+				<dl>
+					<dt>后台语言</dt>
+					<dd>php</dd>
+					<dt>功能插件</dt>
+					<dd>phpexcel</dd>
+					<dt>css框架</dt>
+					<dd>spectre(https://picturepan2.github.io/spectre)</dd>
+					<dt>数据库</dt>
+					<dd>sqlite3</dd>
+					<dt>代码下载</dt>
+					<dd>http://</dd>
+					<dt>作者</dt>
+					<dd>spencer(641315243raoye@sina.com)</dd>
+					<dt>工具说明</dt>
+					<dd><p>后台使用php语言,所以需要php运行环境,nginx和apache服务器皆可.主要是使用phpexcel插件进行excel文档的编辑处理,解放人工劳动力.主要有两个功能:将数据导出excel便于线下分析,和导入excel进行数据的编辑,归纳和批量整理[一般情况是批量导入数据库，为了避免安装数据库服务器，所以小编直接使用sqlite，pdo实现原生sql语句，插入数据极其慢，以至于都超时，需要进行事务处理]老乡可进行二开!<p></dd>
+				</dl>
+			</div>
+
+			<!-- 上传容器 -->
+			<div class="cont-container upload-container hide">
+				<form class="upload-form form-horizontal form-group" method="post" enctype="multipart/form-data" action="javascript:;">
+					上传文件：<input type="file" class="form-input col-6" name="uploadfile"/>
+					<a href="#upload-modal" class="btn btn-primary upload-btn">upload</a>
+					<div class="modal modal-sm" id="upload-modal">
+						<div class="modal-overlay"></div>
+						<div class="modal-container" role="document">
+							<div class="modal-header">
+								<a href="#modals-sizes" class="btn btn-clear float-right"></a>
+								<div class="modal-title h5 tl">Upload Condition</div>
+							</div>
+							<div class="modal-body">
+								<div class="content tl">
+									表头是第
+										<input type="text" name="th" class="exceltitle" />
+									行[为空默认首行]
+									<label class="form-label tl" for="input-example-3">需要哪几列数据[以英文字符逗号隔开,eg:1,2,3,4，为空默认所有的数据]</label>
+									<textarea class="form-input tl" id="input-example-3" placeholder="Textarea" rows="3" name="rowlist"></textarea>
+								</div>
+							</div>
+							<div class="modal-body1">
+								请上传文件
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-primary excel-submit">Submit</button>
+								<a class="btn btn-link close-btn" href="#modals-sizes" type="button">Close</a>
+							</div>
+						</div>
+					</div>
+				</form>
+
+				
+				<!-- 根据表格式进行显示 -->
+				<div class="tab-container hide">
+					<div class="table">
+						<table class="table table-striped table-hover">
+							<thead class="thead">
+								<tr>									
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div class="page-container fr">
+						<input type="hidden" id="pages"/>
+						<input type="hidden" id="countnum" value=30 />
+						<input type="hidden" id="current" value=1 />	
+						<span class="color data-count"></span> 条记录&nbsp;&nbsp;
+					</div>
+				</div>
+
+				<!-- 根据字段划分批量显示 -->
+				<div class="field-container hide">
+					<div class="excel-field">
+						<ul class="tab">
+						</ul>
+					</div>
+					<div class="filed-content">						
+					</div>
+					<div class="page-container fr">
+						<input type="hidden" id="tab" />
+						<ul class="pagination">	
+						</ul>
+					</div>
+				</div>				
+			</div>
+			<!-- 下载容器 -->
+			<div class="cont-container download-container hide">
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>表名</th>
+							<th>字段名</th>
+							<th>下载</th>
+						</tr>
+					</thead>
+					<tbody class="tbody">
+						
+					</tbody>
+					
+				</table>
+				<form method="post" class="tableform" action="down.php">
+					<input type="hidden" class="tabname" name="tabname" />
+					<input type="hidden" class="fieldarr" name="fieldarr"/>
+					<input type="hidden" class="tabnamecn" name="tabnamecn"/>
+					<input type="hidden" name="type" value="down"/>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="js/protect.js"></script>
+<script src="js/main.js"></script>

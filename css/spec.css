@@ -1,0 +1,203 @@
+/*公共基础样式*/
+*,body,div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+	/*避免浏览器差异*/
+	padding:0;
+	margin:0;
+
+	text-decoration: none;
+	list-style: none;
+	text-align: center;
+	outline: none; /*输入框去掉外部阴影*/
+}
+
+/*按钮没有边框颜色*/
+html button::-moz-focus-inner {
+  border-color: transparent !important; 
+}
+
+/*文字排版*/
+.tl{
+	text-align: left;
+}
+
+.tr{
+	text-align: right;
+}
+
+/*浮动样式*/
+.fl{
+	float:left;
+}
+
+.fr{
+	float:right;
+}
+
+.clear{
+	clean:both;
+}
+
+/**颜色样式***/
+.white{
+	color:white;
+}
+
+.black{
+	color:black;
+}
+
+.pink{
+	color:pink;
+}
+
+.gray{
+	color:gray;
+}
+
+.silver{
+	color:silver;
+}
+
+/*背景颜色样式*/
+.bg-white{
+	background-color: white;
+}
+
+.bg-black{
+	background-color: black;
+}
+
+.bg-pink{
+	background-color: pink;
+}
+
+.bg-silver{
+	background-color:silver;
+}
+
+
+/*字体样式*/
+.fs-20{
+	font-size:20px;
+}
+
+.fs-22{
+	font-size:22px;
+}
+
+.fs-24{
+	font-size:24px;
+}
+
+.fs-26{
+	font-size: 26px;
+}
+
+/*加粗*/
+.bd{
+	font-weight: bold;
+}
+
+/*下划线*/
+.underline{
+	text-decoration: underline;
+}
+
+/*超过文案的部分用...代替，需要进行宽度的设置*/
+.span-dot{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/*横竖居中*/
+.center{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transfer:translate(-50%,-50%);
+}
+
+/*去掉下拉条的样式(需要自行设置下拉条三角形)*/
+.select{
+	appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+}
+
+/*关于隐藏占不占位*/
+.show{
+	display:block;
+}
+
+.hide{
+	display: none;
+}
+
+.show-space{
+	visibility:visible;
+}
+
+.hide-space{
+	visibility:hidden;
+}
+
+
+/*关于flex的水平，竖直居中，适用于移动端*/
+.flex-center{
+	display: flex;
+	display: -webkit-flex;
+	justify-content: center;
+}
+
+.flex-space{
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-between;
+}
+
+.flex-middle{
+	display: flex;
+	display: -webkit-flex;
+	align-items: center;
+}
+
+/*表格样式*/
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+} 
+
+/*定位*/
+.pr{
+	position: relative;
+}
+
+.pa{
+	position:absolute;
+}
+
+.pf{
+	position:fixed;
+}
+
+.di{
+	display: inline;
+}
+
+.db{
+	display:block;
+}
+
+.dib{
+	display: inline-block;
+}
+
+img{
+	border:none;
+}
+
+/*控制溢出*/
+.overflow-hidden{
+	overflow:hidden;
+}
